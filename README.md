@@ -25,3 +25,7 @@ Let's create an **author** model that gets referenced in the **book** model!
 Let's create a **character** model that gets embedded in the **book** model!
 
 [Sprint 3 - Embedded](docs/sprint3.md)
+
+## Licensing
+All content is licensed under a CC­BY­NC­SA 4.0 license.
+All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
