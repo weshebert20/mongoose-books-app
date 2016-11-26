@@ -5,7 +5,7 @@
 That's right we're going to add Characters to each of the books.
 Characters however are usually pretty unique to the book that they're in, so we'll be using an **embedded** document; embedding `Character` into the `Book` schema.  
 
-1. Startup the app making sure to `node seed.js` and `node server.js`.  
+1. Startup the app by checking out the `starting-point-sprint-3` branch and running `node seed.js` and `node server.js`.  
 1. Take a look at the current UI in your web browser.  You should see that a new field has been added to each book listed.
 1. Open your web browser developer tools.  Try to add a character to one of the books.  You should see an error message like: `jquery.min.js:4 POST http://localhost:3000/api/books/56fc1e8a8d4bcdb3e5e0092e/characters 404 (Not Found)`
   * What type of error is 404?
@@ -13,7 +13,7 @@ Characters however are usually pretty unique to the book that they're in, so we'
 
 ## 2. Creating the CharacterSchema
 
-Since Characters will be embedded we can create it's schema either in its own file or in the same file as the document it will be embedded in.  Let's keep it simple this time; and create it in the the `models/book.js`.  
+Since Characters will be embedded we can create its schema either in its own file or in the same file as the document it will be embedded in.  Let's keep it simple this time; and create it in the `models/book.js`.  
 
 1. Add the CharacterSchema to `models/book.js` with one `name` attribute (keeping it simple for now).
 
@@ -24,7 +24,7 @@ Since Characters will be embedded we can create it's schema either in its own fi
   });
   ```
 
-1. Now take a look at the `BookSchema` find the part where it has the array of characters.  Let's replace that string with our new schema.
+1. Now take a look at the `BookSchema` and find the part where it has the array of characters.  Let's replace that string with our new schema.
 
   ```js
   //models/book.js
@@ -47,7 +47,7 @@ Since Characters will be embedded we can create it's schema either in its own fi
 
 At this point your Book model should be making use of Characters.  But since we haven't added anything to `server.js` yet, those characters can't be added by users and stored in the DB.
 
-Since characters are part of Books we'll setup our URLs to reflect that.  
+Since characters are part of Books we'll set up our URLs to reflect that.  
 
 Example:
 
@@ -70,7 +70,7 @@ We don't need all of these today; in fact we're only really going to worry about
   ```
 
 
-1. See if you can get the book (`findById`) and then push the character into the book's `characters` array.  If the format fits, Mongoose will convert the object to a Character for you.  Finally you need to save the book and return the entire book as json.  (note that author is still a part of this so you'll need to populate it too.)
+1. See if you can get the book (`findById`) and then push the character into the book's `characters` array.  If the format fits, Mongoose will convert the object to a Character for you.  Finally you need to save the book and return the entire book as JSON.  (Note that author is still a part of this so you'll need to populate it too.)
 
   Let's use this psuedo-code as an example:
 
@@ -128,6 +128,6 @@ We don't need all of these today; in fact we're only really going to worry about
 
 ## 4. Does it work yet?  Does it work yet?
 
-1. Give it a shot now; the UI should just work.  If not make use of debugger or console.log messages to try and resolve any issues.  
+1. Give it a shot now; the UI should just work.  If not, make use of debugger or console.log messages to try and resolve any issues.  
 
 1. We haven't pre-built any UI to make use of embed anywhere else, but if you have spare time you could try to work on the server-side for GET characters or DELETE characters.  Maybe you can even add a delete button to the UI next to each character.  
