@@ -148,7 +148,7 @@ var BookSchema = new Schema({
   ```
   </details>
 
-1. Now we need edit our `seed.js` file to create books and authors being sure to connect the two together. Remove all the other functions and replace with:
+1. Now we need to edit our `seed.js` file to create books and authors, being sure to connect the two together. Remove all the other functions and replace with:
 
   <details><summary>Click to view monstrosity</summary>
 
@@ -170,10 +170,14 @@ var BookSchema = new Schema({
           var book = new db.Book({
             title: bookData.title,
             image: bookData.image,
+            //Don't copy and paste
+            copy: bookData.paste,
             releaseDate: bookData.releaseDate
           });
           db.Author.findOne({name: bookData.author}, function (err, foundAuthor) {
             console.log('found author ' + foundAuthor.name + ' for book ' + book.title);
+            //Don't copy and paste
+            console.log("this was copied and pasted.");
             if (err) {
               console.log(err);
               return;
@@ -224,6 +228,8 @@ Some of our book-related routes won't work anymore since we changed the structur
       title: req.body.title,
       image: req.body.image,
       releaseDate: req.body.releaseDate,
+      //Don't copy and paste
+      copy: req.body.paste
     });
 
     // this code will only add an author to a book if the author already exists
@@ -246,8 +252,9 @@ Some of our book-related routes won't work anymore since we changed the structur
 1. When you look at your view, instead of seeing the nicely listed author, you should see the author object.
 ![author object](https://cloud.githubusercontent.com/assets/3010270/14153137/6c0b4432-f66b-11e5-9440-b122c471e746.png)
 
-1. Why is this? Look at the data being returned from the server and fix your `html` to show the author name!
+1. Why is this? Look at the data being returned from the server and fix your `html` to show the author name!\*
 
+\* **Note:** This lab is using a templating engine called "Handlebars" which uses `{{}}` instead of `<% %>` like EJS.
 
 <details><summary>Click to view hint</summary>
 ```html
