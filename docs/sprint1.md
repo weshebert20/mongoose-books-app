@@ -5,14 +5,14 @@
 1. Take a few minutes to familiarize yourself with your surroundings and navigate the file structure of this app.  You should see a few routes listed in `server.js`; a basic front-end using them, a few files in public including your front-end JavaScript.  
   > "Hmm", you think to yourself, "this app seems to be a books app."
 
-1. Open up your browser and startup the server.  Take a look at the books on the front-end.
+2. Open up your browser and startup the server.  Take a look at the books on the front-end.
   > You didn't forget to `npm install` did you?
 
 ## 2. OK server.js,
 ![Show me what you got!](https://media.giphy.com/media/26DOs997h6fgsCthu/giphy.gif)
 
 1. Open up `server.js` and take a look at the hard-coded books data.  You should see a list of book objects in there.
-1. You should also already see that there are routes to create (POST) new books, get a list of books (GET index), get a single book (GET show) and edit and delete books.  -- However, they're all using that array.  
+2. You should also already see that there are routes to create (POST) new books, get a list of books (GET index), get a single book (GET show) and edit and delete books.  -- However, they're all using that array.  
 
 ## 3. Outgrowing Arrays as a datastore.
 
@@ -23,9 +23,9 @@ So let's replace that array with a database.  We'll create a booksSchema and Boo
 First off let's setup mongo and mongoose.  
 
 1. Install mongoose into this repo's package.json: `npm install --save mongoose`
-1. Create a new file `models/book.js`. We'll create a schema and model for books in this file!
+2. Create a new file `models/book.js`. We'll create a schema and model for books in this file!
 
-1. Our books will have the following attributes:
+3. Our books will have the following attributes:
   * title
   * author
   * image (use a string for this)
@@ -44,13 +44,13 @@ First off let's setup mongo and mongoose.
    });
   ```
 
-1. Next let's create the `Book` model from the schema.  
+4. Next let's create the `Book` model from the schema.  
   ```js
   // book.js
   var Book = mongoose.model('Book', BookSchema);
   ```
 
-1. Finally we'll need to export Book from this **module** (that's this file).  You can export it at the very end of the file by doing:
+5. Finally we'll need to export Book from this **module** (that's this file).  You can export it at the very end of the file by doing:
   ```js
   // book.js
   var Book = mongoose.model('Book', BookSchema);
@@ -71,36 +71,37 @@ We've already provided a `models/index.js` for you to use.  If you take a look i
   // models/index.js
   module.exports.Book = require("./book.js");
   ```
+  
   Now if someone were to `require('./models')` they'd gain access to this database model.
 
-    <details><summary>Here's a module example:</summary>
+<details><summary>Here's a module example:</summary>
 
 
-        ├── models
-        │   ├── index.js
-        │   ├── gargoyle.js
-        │   ├── gnome.js
-        │   ├── goblin.js
+    ├── models
+    │   ├── index.js
+    │   ├── gargoyle.js
+    │   ├── gnome.js
+    │   ├── goblin.js
 
 
-      Inside `index.js` we require each of the other files and export it as one object:
-    
-      ```js
-      // models/index.js
-      var mongoose = require("mongoose");
-      mongoose.connect("mongodb://localhost/book-app");   
-      // the mongoose.connect line above  needs to happen exactly once in your code
-          // move it from book.js to index.js  :)
+  Inside `index.js` we require each of the other files and export it as one object:
 
-      module.exports.Gargoyle = require("./gargoyle.js");
-      module.exports.Goblin = require("./goblin.js");
-      module.exports.Gnome = require("./gnome.js");
-      ```
+  ```js
+  // models/index.js
+  var mongoose = require("mongoose");
+  mongoose.connect("mongodb://localhost/book-app");   
+  // the mongoose.connect line above  needs to happen exactly once in your code
+      // move it from book.js to index.js  :)
 
-      In the end this means that when you require `./models` in `server.js` you get back an object like
-        { Gargoyle: Model, Goblin: Model, Gnome: Model }
+  module.exports.Gargoyle = require("./gargoyle.js");
+  module.exports.Goblin = require("./goblin.js");
+  module.exports.Gnome = require("./gnome.js");
+  ```
 
-    </details>
+  In the end this means that when you require `./models` in `server.js` you get back an object like
+    { Gargoyle: Model, Goblin: Model, Gnome: Model }
+
+</details>
 
 
 ## 5. Verifying that this is working
@@ -113,7 +114,9 @@ Take a quick look in `seed.js`.  You should see that it does a `require('./model
 1. Try running `node seed.js` in your terminal.
   If you're not seeing `removed all books` and `created X books` then something might be going wrong.  
 
-  <details><summary>Spoiler: book.js</summary>
+<details>
+  <summary>Spoiler: book.js</summary>
+
   ```js
   // entire book.js so far
   var mongoose = require('mongoose'),
@@ -130,9 +133,10 @@ Take a quick look in `seed.js`.  You should see that it does a `require('./model
 
   module.exports = Book;
   ```
-  </details>
 
-1. You can use robomongo or the `mongo` CLI command to check out your database.  If you got an error message try to debug, and if you're stuck ask for help.  
+</details>
+
+2. You can use robomongo or the `mongo` CLI command to check out your database.  If you got an error message try to debug, and if you're stuck ask for help.  
 
 
 ## 6. Connecting the database to the server
