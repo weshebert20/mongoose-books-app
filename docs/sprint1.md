@@ -144,10 +144,10 @@ Take a quick look in `seed.js`.  You should see that it does a `require('./model
 Next we'll start to use our new model in `server.js`.
 
 1. Go ahead and open `server.js`.  
-1. Add the correct require statement to `server.js` to import your modules.  `var db = require('./models');`.  This should go near the top as part of the "SETUP and CONFIGURATION".
-1. Now delete the hard-coded books array.  We'll start to replace each route with the correct code to use the database instead.  From now on when we want to get to a book we'll use mongoose methods and access `db.Books`.
+2. Add the correct require statement to `server.js` to import your modules.  `var db = require('./models');`.  This should go near the top as part of the "SETUP and CONFIGURATION".
+3. Now delete the hard-coded books array.  We'll start to replace each route with the correct code to use the database instead.  From now on when we want to get to a book we'll use mongoose methods and access `db.Books`.
 
-1. Find the books index route and replace it with the following code:
+4. Find the books index route and replace it with the following code:
   ```js
   // server.js
   app.get('/api/books', function (req, res) {
@@ -159,7 +159,7 @@ Next we'll start to use our new model in `server.js`.
   });
   ```
 
-1. Restart your server and if you've successfully seeded your database you should see all the seeded books when you refresh the page.
+5. Restart your server and if you've successfully seeded your database you should see all the seeded books when you refresh the page.
 
 
 ## 7. Challenge!
