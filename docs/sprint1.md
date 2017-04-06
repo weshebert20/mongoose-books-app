@@ -8,16 +8,17 @@
 1. Open up your browser and startup the server.  Take a look at the books on the front-end.
   > You didn't forget to `npm install` did you?
 
-## 2. OK server.js, let's see what you've got?!
+## 2. OK server.js,
+![Show me what you got!](https://media.giphy.com/media/26DOs997h6fgsCthu/giphy.gif)
 
 1. Open up `server.js` and take a look at the hard-coded books data.  You should see a list of book objects in there.
 1. You should also already see that there are routes to create (POST) new books, get a list of books (GET index), get a single book (GET show) and edit and delete books.  -- However, they're all using that array.  
 
 ## 3. Outgrowing Arrays as a datastore.
 
-Arrays are no longer adequate as a data-store.  They lose their data whenever the server is shut-down, they don't support backups unless you copy the file and new elements never get saved in the file.  Plus all the cool kids are using databases not arrays.
+Arrays are not a great way of storing data. They reset whenever the server is shut-down, they don't support backups unless you copy the file. Arrays as a datastore are for dorks.
 
-Let's replace that array with a database.  We'll create a booksSchema and Books model.  
+So let's replace that array with a database.  We'll create a booksSchema and Books model.  
 
 First off let's setup mongo and mongoose.  
 
@@ -59,9 +60,9 @@ First off let's setup mongo and mongoose.
 
 ## 4. Wait a second.... what are modules :grey_question:
 
-We've already provided a `models/index.js` for you to use.  If you take a look in there you should already see that it
+We've already provided a `models/index.js` for you to use.  If you take a look in there you should already see that it:
   1. requires mongoose
-  1. connects to a book-app database
+  2. connects to a book-app database
 
 `index.js` will import each model and export an object called `exports` with keys representing each of our models.  That way we can `require` the entire directory and get all of our models!  
 
@@ -75,15 +76,16 @@ We've already provided a `models/index.js` for you to use.  If you take a look i
     <details><summary>Here's a module example:</summary>
 
 
-      ├── models
-      │   ├── index.js
-      │   ├── gargoyle.js
-      │   ├── gnome.js
-      │   ├── goblin.js
+        ├── models
+        │   ├── index.js
+        │   ├── gargoyle.js
+        │   ├── gnome.js
+        │   ├── goblin.js
 
 
       Inside `index.js` we require each of the other files and export it as one object:
-
+    
+      ```js
       // models/index.js
       var mongoose = require("mongoose");
       mongoose.connect("mongodb://localhost/book-app");   
@@ -93,6 +95,7 @@ We've already provided a `models/index.js` for you to use.  If you take a look i
       module.exports.Gargoyle = require("./gargoyle.js");
       module.exports.Goblin = require("./goblin.js");
       module.exports.Gnome = require("./gnome.js");
+      ```
 
       In the end this means that when you require `./models` in `server.js` you get back an object like
         { Gargoyle: Model, Goblin: Model, Gnome: Model }
