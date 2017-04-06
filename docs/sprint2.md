@@ -192,7 +192,7 @@ var BookSchema = new Schema({
           });
         });
       });
-
+      process.exit();
     });
   });
   ```
