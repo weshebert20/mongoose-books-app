@@ -58,23 +58,11 @@ First off let's setup mongo and mongoose.
   module.exports = Book;
   ```
 
-## 4. Wait a second.... what are modules :grey_question:
+## 4. Wait a second.... what are modules?
 
-We've already provided a `models/index.js` for you to use.  If you take a look in there you should already see that it:
-  1. requires mongoose
-  2. connects to a book-app database
+A "module" is a method of packaging related code into a single object,  then `export`ing it so that it can then be `require`'d in another file. For instance, it's common to have multiple models for your database, that are combined into a `module` and `export`ed as one object.
 
-`index.js` will import each model and export an object called `exports` with keys representing each of our models.  That way we can `require` the entire directory and get all of our models!  
-
-1. Go ahead and import and export your `Book` model in `index.js`.
-  ```js
-  // models/index.js
-  module.exports.Book = require("./book.js");
-  ```
-  
-  Now if someone were to `require('./models')` they'd gain access to this database model.
-
-<details><summary>Here's a module example:</summary>
+<details><summary>(Here's a module example)</summary>
 
 
     ├── models
@@ -102,6 +90,22 @@ We've already provided a `models/index.js` for you to use.  If you take a look i
     { Gargoyle: Model, Goblin: Model, Gnome: Model }
 
 </details>
+
+We've already provided a `models/index.js` for you to use.  If you take a look in there you should already see that it:
+  1. requires mongoose
+  2. connects to a book-app database
+
+`index.js` will need to import each model, and export an object called `exports` with keys representing each of our models.  That way we can `require` the entire directory and get all of our models!  
+
+1. Go ahead and import and export your `Book` model in `index.js`.
+  ```js
+  // models/index.js
+  module.exports.Book = require("./book.js");
+  ```
+  
+  Now if someone were to `require('./models')` they'd gain access to this database model.
+
+
 
 
 ## 5. Verifying that this is working
