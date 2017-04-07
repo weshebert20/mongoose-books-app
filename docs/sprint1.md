@@ -171,7 +171,7 @@ Next we'll start to use our new model in `server.js`.
 On your own use the mongoose methods to replace the other `/api/books*` routes with mongoose commands.
 
 Make sure you look back to the lecture notes for info on the most important methods like:
-* find
-* findOneAndRemove
-* new
-* save
+* `find`
+* `findOneAndRemove`
+* `new`
+* `save`
