@@ -119,7 +119,7 @@ Take a quick look in `seed.js`.  You should see that it does a `require('./model
   If you're not seeing `removed all books` and `created X books` then something might be going wrong.  
 
 <details>
-  <summary>Spoiler: book.js</summary>
+  <summary>Psst! If your seed file didn't work, maybe there's something wrong with models/book.js. Make sure it looks like this:</summary>
 
   ```js
   // entire book.js so far
