@@ -274,10 +274,7 @@ Some of our book-related routes won't work anymore since we changed the structur
 
 ## Challenge!
 
-On your own, use the mongoose methods to replace the other `/api/books*` routes with mongoose commands, taking into account the new referenced data relationship.
+On your own, use the mongoose methods to replace the `SHOW` route with mongoose commands, taking into account the new referenced data relationship.
 
-Make sure you look back to the lecture notes for info on the most important methods like:
-* find
-* findOneAndRemove
-* new
-* save
+Make sure you look back to earlier functions for info on the most important methods like:
+* populate
