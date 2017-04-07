@@ -192,7 +192,6 @@ var BookSchema = new Schema({
           });
         });
       });
-      process.exit();
     });
   });
   ```
@@ -201,6 +200,8 @@ var BookSchema = new Schema({
   ![](http://i.imgur.com/ONjGv69.png)
   </details>
 1. Run `node seed.js` in your terminal again to re-add the books and add the new authors.
+
+> **Note:** This process will hang, and you will have to kill it with `ctrl-c` or open a new tab to keep using the Terminal.
 
 ## 5. Reroute! 
 
