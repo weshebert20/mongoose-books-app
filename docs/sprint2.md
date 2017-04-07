@@ -258,6 +258,7 @@ Some of our book-related routes won't work anymore since we changed the structur
 \* **Note:** This lab is using a templating engine called "Handlebars" which uses `{{}}` instead of `<% %>` like EJS.
 
 <details><summary>Click to view hint</summary>
+
 ```html
 <p>
   <b>{{title}}</b>
@@ -266,6 +267,7 @@ Some of our book-related routes won't work anymore since we changed the structur
   <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
 </p>
 ```
+
 </details>
 
 
