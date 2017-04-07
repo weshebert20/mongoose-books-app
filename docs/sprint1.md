@@ -16,7 +16,7 @@
 
 ## 3. Outgrowing Arrays as a datastore.
 
-Arrays are not a great way of storing data. They reset whenever the server is shut-down, they don't support backups unless you copy the file. Arrays as a datastore are for dorks.
+Arrays are not a great way of storing data. They reset whenever the server is shut-down, and they don't support backups (unless you copy the file). We can do better!
 
 So let's replace that array with a database.  We'll create a booksSchema and Books model.  
 
