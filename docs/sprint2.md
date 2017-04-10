@@ -37,6 +37,7 @@ We have authors listed as just a string inside books, but what happens if we wan
   </details>
 
 
+
 1. Next, create an `Author` model from the schema.  
 
   <details><summary>Stuck figuring out what code to include? Click here.</summary>
@@ -82,14 +83,16 @@ We have authors listed as just a string inside books, but what happens if we wan
 
 ## 3. Whose book is it anyway?
 
+![Read a book](https://media.giphy.com/media/12imXZa2uBqf28/giphy.gif)
+
 Now we have a books model and authors has its own model. We want to relate them! Now we'll update books to store an author by reference instead of just storing the name.
 
 Referencing authors is a good choice here because:
-* many books might share the same author, and   
-* we don't want to have to access every single one of an author's books just to make a change to the author's data.  
+- many books might share the same author, and   
+- we don't want to have to access every single one of an author's books just to make a change to the author's data.  
 
 
-1. We'll need to update the book schema. Change the `author` line to store a reference to the author:
+1. We'll need to update the book schema. In `models/book.js`, change the `author` line to store a reference to the author:
 
 ```js
 var BookSchema = new Schema({
@@ -104,10 +107,10 @@ var BookSchema = new Schema({
 ```
 ## 4. Authors, assemble!
 
-1. We have all the tools we need to start making authors.  Add the following data to your `seed.js` file.
+1. Now we have all the tools we need to start making authors - but it would be a real waste of time to enter them all by hand. That's what we have seed files for! Add the following data to your `seed.js` file:
 <!-- Then add a call to `db.Author.remove` to delete all the old authors, and inside it add a call to `db.Author.create` to create new authors. -->
 
-  <details><summary>Expand this section for author seed data.</summary>
+  <details><summary>(Expand this section for author seed data)</summary>
 
   ```js
   var authors_list = [
@@ -148,9 +151,9 @@ var BookSchema = new Schema({
   ```
   </details>
 
-1. Now we need to edit our `seed.js` file to create books and authors, being sure to connect the two together. Remove all the other functions and replace with:
+1. Now we need edit our `seed.js` file to create books and authors being sure to connect the two together. Remove the other function after the data, and replace with:
 
-  <details><summary>Click to view monstrosity</summary>
+  <details><summary>(Click to view monstrosity)</summary>
 
   ```js
   db.Author.remove({}, function(err, authors) {
@@ -249,8 +252,9 @@ Some of our book-related routes won't work anymore since we changed the structur
   });
   ```
 
-## 6. But the view from here is bad!
-1. When you look at your view, instead of seeing the nicely listed author, you should see the author object.
+## 5. But this looks like garbage!
+1. Run `node` on `server.js` again. When you look at your view, instead of seeing the nicely listed author, you should see the author object.
+
 ![author object](https://cloud.githubusercontent.com/assets/3010270/14153137/6c0b4432-f66b-11e5-9440-b122c471e746.png)
 
 1. Why is this? Look at the data being returned from the server and fix your `html` to show the author name!\*
@@ -269,8 +273,6 @@ Some of our book-related routes won't work anymore since we changed the structur
 ```
 
 </details>
-
-
 
 ## Challenge!
 

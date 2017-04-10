@@ -2,8 +2,8 @@
 
 ## 1. Many unique characters belong to each book!
 
-That's right we're going to add Characters to each of the books.
-Characters however are usually pretty unique to the book that they're in, so we'll be using an **embedded** document; embedding `Character` into the `Book` schema.  
+That's right - we're going to add Characters to each of the books.
+Characters, however, are usually pretty unique to the book that they're in, so we'll be using an **embedded** document; embedding `Character` into the `Book` schema.  
 
 1. Startup the app by checking out the `starting-point-sprint-3` branch and running `node seed.js` and `node server.js`.  
 1. Take a look at the current UI in your web browser.  You should see that a new field has been added to each book listed.
@@ -34,10 +34,10 @@ Since Characters will be embedded we can create its schema either in its own fil
 
   Do you remember how to access an embedded Schema?  
 
-  <details><summary>don't remember?  click here</summary>
-    ```js
+  <details><summary>(Don't remember? Click here)</summary>
+
     characters: [CharacterSchema]
-    ```
+ 
   </details>
 
 
@@ -45,9 +45,9 @@ Since Characters will be embedded we can create its schema either in its own fil
 
 ## 3. POST characters
 
-At this point your Book model should be making use of Characters.  But since we haven't added anything to `server.js` yet, those characters can't be added by users and stored in the DB.
+Now your `Book` model is making use of the `CharacterSchema`.  But since we haven't added anything to `server.js`, those characters can't yet be added by users and stored in the DB.
 
-Since characters are part of Books we'll set up our URLs to reflect that.  
+Since characters are part of `Books`, we can set up our URLs to reflect that:  
 
 Example:
 
@@ -97,7 +97,6 @@ We don't need all of these today; in fact we're only really going to worry about
 
   <details><summary>Spoiler</summary>
 
-    ```js
     // Create a character associated with a book
     app.post('/api/books/:book_id/characters', function (req, res) {
       // Get book id from url params (`req.params`)
@@ -122,7 +121,6 @@ We don't need all of these today; in fact we're only really going to worry about
         }
       );
     });
-    ```
   </details>
 
 
