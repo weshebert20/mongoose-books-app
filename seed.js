@@ -65,6 +65,7 @@ db.Book.remove({}, function(err, books){
     db.Book.create(books_list, function(err, books){
       if (err) { return console.log('err', err); }
       console.log("created", books.length, "books");
+      //finishes process
       process.exit();
     });
   }
